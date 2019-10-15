@@ -1,0 +1,30 @@
+#include<stdio.h>
+#define max 100
+int main()
+{
+ char str[max],f='x',c;
+ printf("do you want to check for epsilon string's case? (y/n) : ");
+ scanf("%c",&c);
+ if(c=='y'|| c=='Y') 
+ goto flag;
+
+ printf("enter the string to be checked: ");
+ scanf("%s",str);
+ int i;
+ for(i=0;i<strlen(str);i++)
+ {
+  switch(f)
+  {
+   case 'x': if(str[i]=='0') f='y';
+    else if(str[i]=='1') f='x';
+   break;
+   case 'y': if(str[i]=='0') f='x';
+    else if(str[i]=='1') f='y';
+   break;
+  }
+ }
+flag: if(f=='x') printf("\nString is accepted as it reaches the final state that is %c",f);
+ else printf("\nString is not accepted as it reaches a state %c which is not the final state",f);
+ 
+return 0;
+}
